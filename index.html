@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Site educativo sobre uma caixa de câmbio automotiva de 4 marchas + ré, projeto desenvolvido no SENAI."
+    />
+    <title>Caixa de Câmbio Manual Automotiva — 4 Marchas + Ré | SENAI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="robo.css" />
+    <script src="robo.js" defer></script>
+    <script src="sistem.js" defer></script>
+     <link rel="icon" type="image/png" href="https://fiesc.com.br/sites/default/files/styles/cke_media_resize_large/public/2026-03/marca-fiesc-entidades_negativo-01.jpg?itok=ti1jmS_T">
+  </head>
+  <body>
+    <a class="pular" href="#principal">Pular para o conteúdo</a>
+    <header class="topo">
+      <img
+        class="logotipo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9a1wlEhaL4C3xUYgKoN13fZDLgsVZbai3j0cws6PvQg&s=10"
+        alt="Logotipo do SENAI"
+      />
+      <button
+        class="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu"
+        aria-label="Abrir menu"
+      >
+        Menu
+      </button>
+      <nav id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#funcionamento">Como funciona</a></li>
+          <li><a href="#componentes">Componentes</a></li>
+          <li><a href="#materiais">Materiais</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#simulador">Simulador</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li>
+            <a
+              href="https://sc.senai.br/"
+              target="_blank"
+              rel="noopener"
+              class="botao-senai"
+              >Conheça o site oficial do SENAI</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="principal">
+      <section id="inicio" class="hero">
+        <div class="miolo">
+          <h1>Caixa de Câmbio Manual Automotiva - 4 Marchas + Ré</h1>
+          <p class="sub">
+            Entenda, de forma interativa, como o câmbio leva a força do motor
+            até as rodas.
+          </p>
+          <p>
+            Este projeto educativo, desenvolvido no SENAI, explica uma caixa de
+            câmbio com quatro marchas à frente e uma marcha à ré. Teste o
+            simulador, conheça as peças, veja o projeto físico e confira o que
+            aprendeu no quiz.
+          </p>
+          <div class="acoes">
+            <a class="btn" href="#simulador">Abrir o simulador</a>
+            <a class="btn sec" href="#componentes">Conhecer as peças</a>
+            <a class="btn sec" href="#galeria">Ver o projeto físico</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="funcionamento">
+        <div class="miolo">
+          <h2>Como funciona uma caixa de câmbio</h2>
+          <p class="intro">
+            O motor gira rápido e com torque limitado. O câmbio escolhe, entre
+            pares de engrenagens, qual relação entre rotação e torque chega às
+            rodas.
+          </p>
+          <div class="grade">
+            <article class="card">
+              <h3>Relação de transmissão</h3>
+              <p>
+                É a razão entre a rotação de entrada e a de saída de um par de
+                engrenagens. Pelos dentes: dentes da engrenagem movida + dentes
+                da engrenagem motora.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Torque e rotação</h3>
+              <p>
+                Torque é a força de giro, medida em newton-metro (N·m). Rotação
+                é o número de voltas por minuto (rpm). Ignorando perdas, a
+                potência se conserva: quando a saída ganha torque, perde
+                rotação, e o inverso também vale.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Engrenagens de tamanhos diferentes</h3>
+              <p>
+                Uma engrenagem pequena movendo uma grande reduz a rotação e
+                aumenta o torque. Uma grande movendo uma pequena faz o oposto.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Seleção de marchas</h3>
+              <p>
+                Ao mover a alavanca, o mecanismo de seleção desloca garfos que
+                ligam o par de engrenagens escolhido ao eixo de saída. Por vez,
+                só um par transmite o movimento.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Marchas curtas e longas</h3>
+              <p>
+                Marchas curtas (1ª e 2ª) têm relação alta: muito torque e pouca
+                velocidade. Marchas longas (3ª e 4ª) têm relação menor: mais
+                velocidade com menos rotação do motor.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Marcha à ré</h3>
+              <p>
+                Uma engrenagem intermediária extra entra no caminho do movimento
+                e inverte o sentido de giro da saída. Assim o veículo se desloca
+                para trás.
+              </p>
+            </article>
+          </div>
+          <p class="aviso">
+            O comportamento real também depende do motor, da carga, do peso, do
+            diferencial, dos pneus e das perdas por atrito. Os valores variam de
+            veículo para veículo.
+          </p>
+        </div>
+      </section>
+
+      <section id="componentes">
+        <div class="miolo">
+          <h2>Componentes da caixa de câmbio</h2>
+          <p class="intro">
+            As ilustrações são esquemáticas. Cada card informa se aquela peça
+            está ou não no modelo físico construído pela equipe.
+          </p>
+          <div class="grade" id="lista-comp"></div>
+        </div>
+      </section>
+
+      <section id="materiais">
+        <div class="miolo">
+          <h2>Materiais e fabricação</h2>
+          <p class="intro">
+            Materiais usados na construção do protótipo da caixa de câmbio, com
+            a etapa em que cada um entra. As quantidades não foram informadas
+            pela equipe.
+          </p>
+          <div class="rolagem">
+            <table>
+              <caption class="so-leitor">
+                Materiais usados na construção da caixa de câmbio
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Material</th>
+                  <th scope="col">Aplicação</th>
+                  <th scope="col">Etapa de fabricação</th>
+                  <th scope="col">Observações</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-mat">
+                <tr>
+                  <th scope="row">PLA (peças impressas em 3D)</th>
+                  <td>
+                    Engrenagens, eixos, garfos seletores, placas da estrutura,
+                    alavanca e pomo da mudança.
+                  </td>
+                  <td>Modelagem e fatiamento, impressão 3D e limpeza das peças.</td>
+                  <td>
+                    É o material de tudo o que se move no protótipo. Suporta
+                    pouco calor e carga, por isso o modelo é demonstrativo.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Lixas</th>
+                  <td>
+                    Acabamento das peças impressas: tirar as linhas da impressão
+                    e as rebarbas dos furos por onde passam os eixos.
+                  </td>
+                  <td>Depois de imprimir e antes de montar.</td>
+                  <td>O grão usado em cada peça não foi informado.</td>
+                </tr>
+                <tr>
+                  <th scope="row">Parafusos</th>
+                  <td>
+                    Fixar as placas da carcaça e o suporte do mecanismo de
+                    seleção.
+                  </td>
+                  <td>Montagem da estrutura e do comando.</td>
+                  <td>
+                    Aparecem nas fotos nos cantos das placas; a medida não foi
+                    informada.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Cola</th>
+                  <td>Fixar as peças que não vão parafusadas no acabamento.</td>
+                  <td>Final da montagem.</td>
+                  <td>O tipo de cola não foi informado pela equipe.</td>
+                </tr>
+                <tr>
+                  <th scope="row">MDF</th>
+                  <td>Caixa que abriga a parte elétrica do protótipo.</td>
+                  <td>Corte a laser e encaixe das chapas.</td>
+                  <td>É a caixa marrom que aparece na foto dos LEDs.</td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Componentes elétricos (motor, microrruptores, LEDs e fios)
+                  </th>
+                  <td>
+                    Girar o eixo de entrada e acender o LED da marcha escolhida
+                    no comando.
+                  </td>
+                  <td>Montagem e ligação do circuito fora da caixa de câmbio.</td>
+                  <td>
+                    O motor amarelo e os microrruptores aparecem nas fotos da
+                    galeria.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grade duas">
+            <article class="card">
+              <h3>Impressão 3D: vantagens</h3>
+              <p>
+                Permite testar formas rapidamente, criar geometrias difíceis de
+                usinar e substituir uma peça sem fabricar tudo de novo.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Impressão 3D: limitações</h3>
+              <p>
+                O PLA costuma ter menos resistência ao desgaste, ao impacto e ao
+                calor do que peças metálicas. Por isso o modelo serve para
+                demonstrar o funcionamento, não para uso em um veículo real.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria">
+        <div class="miolo">
+          <h2>Galeria do projeto físico</h2>
+          <p class="intro">
+            São 7 fotos reais da caixa de câmbio de 4 marchas + ré construída
+            pela equipe. Clique em uma foto para ampliar.
+          </p>
+          <div class="galeria" id="galeria-lista">
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da caixa montada em vista lateral"
+              >
+                <img
+                  src="imagens/01-caixa-montada-lateral.jpg"
+                  alt="Caixa de câmbio montada em vista lateral: três eixos com engrenagens laranja e roxas, garfos brancos e alavanca com pomo roxo no topo."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Caixa montada, vista lateral: os três eixos com as engrenagens
+                laranja e roxas, os garfos brancos que engatam as marchas e a
+                alavanca com o pomo roxo.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da caixa com o motor elétrico"
+              >
+                <img
+                  src="imagens/02-vista-lateral-motor.jpg"
+                  alt="Caixa de câmbio sobre uma mesa com um motor elétrico amarelo preso na base e a placa de comandos roxa com as posições 1, 2, 3, 4 e R."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Vista lateral com o motor elétrico amarelo na base: é ele que
+                gira o eixo de entrada durante a demonstração. A placa de
+                comandos traz as posições 1, 2, 3, 4 e R.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto do eixo de saída"
+              >
+                <img
+                  src="imagens/03-eixo-de-saida.jpg"
+                  alt="Vista da tampa branca da caixa com o eixo de saída atravessando a carcaça e as engrenagens empilhadas atrás."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Tampa branca com o eixo de saída atravessando a carcaça: é por
+                esse eixo que o torque vai embora em direção às rodas.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a vista superior dos garfos de mudança"
+              >
+                <img
+                  src="imagens/04-vista-superior-garfos.jpg"
+                  alt="Vista superior da caixa mostrando três garfos brancos alinhados sobre o trilho roxo e o pomo da alavanca."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Vista superior: os três garfos brancos alinhados sobre o trilho
+                roxo. O movimento da alavanca empurra um deles para engatar a
+                marcha.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da equipe manipulando o protótipo"
+              >
+                <img
+                  src="imagens/05-equipe-manuseando.jpg"
+                  alt="Mãos de estudantes manipulando a caixa de câmbio sobre a mesa da sala, movendo a alavanca e girando o eixo."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Demonstração da montagem: a equipe move o pomo e gira o eixo na
+                frente da plateia para mostrar o engate das marchas.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto do eixo com engrenagens solto na mão"
+              >
+                <img
+                  src="imagens/06-eixo-com-engrenagens.jpg"
+                  alt="Um eixo laranja impresso em 3D segurado na mão, com engrenagens laranja, branca e roxa montadas sobre ele."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Um eixo fora da carcaça, segurado na mão: as engrenagens
+                impressas em 3D giram soltas ou travam no eixo conforme a
+                função de cada uma.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da parte elétrica com LEDs"
+              >
+                <img
+                  src="imagens/07-eletronica-leds.jpg"
+                  alt="Caixa de MDF com microrruptores e fios ligados a LEDs azuis e vermelho, ao lado da caixa de câmbio montada."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Parte elétrica do protótipo: microrruptores acionados pelo
+                comando das marchas ligam os LEDs da caixa de MDF, indicando a
+                marcha escolhida.
+              </figcaption>
+            </figure>
+          </div>
+          <dialog id="lightbox" aria-label="Foto ampliada">
+            <img id="lb-img" src="" alt="" />
+            <p id="lb-leg"></p>
+            <button type="button" class="btn" id="lb-fechar">Fechar</button>
+          </dialog>
+        </div>
+      </section>
+
+      <section id="simulador">
+        <div class="miolo">
+          <h2>Simulador de marchas</h2>
+          <p class="intro">
+            Escolha uma marcha e veja o caminho do movimento. A ilustração é
+            conceitual: os tamanhos das engrenagens não são medidas do projeto
+            físico.
+          </p>
+          <div class="sim">
+            <div class="card sim-fig">
+              <svg
+                id="sim-svg"
+                viewBox="0 0 540 424"
+                role="img"
+                aria-label="Esquema conceitual com três eixos: entrada, intermediário e saída, e cinco pares de engrenagens (1, 2, 3, 4 e ré)"
+              ></svg>
+              <p class="legenda">
+                De cima para baixo: eixo de entrada (vem do motor), eixo
+                intermediário e eixo de saída (segue para as rodas). Em amarelo,
+                o par de engrenagens e o fluxo do movimento.
+              </p>
+            </div>
+            <div class="card sim-ctl">
+              <div class="marchas" role="group" aria-label="Escolha da marcha">
+                <button
+                  type="button"
+                  class="btn-marcha"
+                  data-m="N"
+                  aria-pressed="true"
+                >
+                  N
+                </button>
+                <button
+                  type="button"
+                  class="btn-marcha"
+                  data-m="1"
+                  aria-pressed="false"
+                >
+                  1
+                </button>
+                <button
+                  type="button"
+                  class="btn-marcha"
+                  data-m="2"
+                  aria-pressed="false"
+                >
+                  2
+                </button>
+                <button
+                  type="button"
+                  class="btn-marcha"
+                  data-m="3"
+                  aria-pressed="false"
+                >
+                  3
+                </button>
+                <button
+                  type="button"
+                  class="btn-marcha"
+                  data-m="4"
+                  aria-pressed="false"
+                >
+                  4
+                </button>
+                <button
+                  type="button"
+                  class="btn-marcha"
+                  data-m="R"
+                  aria-pressed="false"
+                >
+                  R
+                </button>
+              </div>
+              <div aria-live="polite">
+                <p class="status" id="sim-status"></p>
+                <h3 id="sim-titulo"></h3>
+                <p id="sim-txt"></p>
+                <p id="sim-eng"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz">
+        <div class="miolo">
+          <h2>Quiz: o que você aprendeu?</h2>
+          <div class="card" id="quiz-area"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="miolo">
+        <h2>Sobre o projeto</h2>
+        <p>
+          Caixa de câmbio automotiva de 4 marchas + ré, desenvolvida no SENAI. A
+          seção Materiais e fabricação lista os materiais usados no protótipo.
+        </p>
+        <p>Turma V3 do Programa Trilhas da Educação no SENAI Norte 1</p>
+        <p>Professor Lucas</p>
+        <p>Desenvolvido por:</p>
+        <ul>
+          <li>Herbert Kalebe L. Gomes</li>
+          <li>Nicolas Albrecht</li>
+          <li>Victor Izaque N. de Ramos</li>
+          <li>Jefté Orlando Santana Lima</li>
+        </ul>
+        
+      </div>
+    </footer>
+
+    <button
+      type="button"
+      class="chat-btn"
+      id="chat-btn"
+      aria-expanded="false"
+      aria-controls="chat"
+    >
+      Perguntar ao professor
+    </button>
+    <section
+      class="chat"
+      id="chat"
+      aria-label="Conversa com o Robô Professor"
+      hidden
+    >
+      <div class="chat-topo">
+        <strong>Robô Professor</strong
+        ><button type="button" id="chat-x" aria-label="Fechar conversa">
+          Fechar
+        </button>
+      </div>
+      <div class="chat-log" id="chat-log" role="log" aria-live="polite"></div>
+      <div class="chips-linha">
+        <button
+          type="button"
+          class="chips-btn"
+          id="chips-btn"
+          aria-expanded="false"
+          aria-controls="chips"
+        >
+          Perguntas prontas
+        </button>
+        <span class="chips-nota">toque para escolher uma dúvida</span>
+      </div>
+      <div class="chips" id="chips" hidden></div>
+      <div class="cmd">
+        <span class="cmd-sinal" aria-hidden="true">&gt;</span>
+        <input
+          id="cmd-in"
+          type="text"
+          aria-label="Caixa de comando do Robô Professor"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="/ajuda · /marcha 1 · /busca engrenagem"
+        />
+        <button type="button" class="btn sec" id="cmd-ir">Executar</button>
+      </div>
+      <div class="cmd-dicas" id="cmd-dicas"></div>
+      <form id="chat-form" autocomplete="off">
+        <input
+          id="chat-in"
+          type="text"
+          aria-label="Escreva sua pergunta"
+          placeholder="Escreva sua dúvida sobre o câmbio"
+        />
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </body>
+</html>
