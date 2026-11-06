@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Site educativo sobre o Projeto Sentinela: uma braçadeira com sensor MQ-2 e Arduino que detecta gás no ar e avisa por buzzer e motor vibrador. Projeto desenvolvido no SENAI."
+    />
+    <title>
+      Projeto Sentinela — Braçadeira detectora de gases com Arduino | SENAI
+    </title>
+    <link rel="stylesheet" href="Sentinela.css?v=6" />
+    <link rel="stylesheet" href="robo.css" />
+    <script src="robo.js?v=2" defer></script>
+    <script src="Sentinela.js?v=11" defer></script>
+    <link rel="icon" type="image/png" href="https://fiesc.com.br/sites/default/files/styles/cke_media_resize_large/public/2026-03/marca-fiesc-entidades_negativo-01.jpg?itok=ti1jmS_T">
+  </head>
+  <body>
+    <a class="pular" href="#principal">Pular para o conteúdo</a>
+    <header class="topo">
+      <img
+        class="logotipo"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9a1wlEhaL4C3xUYgKoN13fZDLgsVZbai3j0cws6PvQg&s=10"
+        alt="Logotipo do SENAI"
+      />
+      <button
+        class="menu-btn"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu"
+        aria-label="Abrir menu"
+      >
+        Menu
+      </button>
+      <nav id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#funcionamento">Como funciona</a></li>
+          <li><a href="#componentes">Componentes</a></li>
+          <li><a href="#materiais">Materiais</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#demo">Demonstração</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li>
+            <a
+              href="https://sc.senai.br/"
+              target="_blank"
+              rel="noopener"
+              class="botao-senai"
+              >Conheça o site oficial do SENAI</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <nav class="abas" aria-label="Trocar de projeto">
+      <a href="index.html">Caixa de Câmbio 4 Marchas + Ré</a>
+      <a href="Sentinela.html" class="ativa" aria-current="page"
+        >Projeto Sentinela</a
+      >
+    </nav>
+
+    <main id="principal">
+      <section id="inicio" class="hero">
+        <div class="miolo">
+          <h1>
+            Projeto Sentinela - Braçadeira que detecta gases e avisa por som e
+            vibração
+          </h1>
+          <p class="sub">
+            Uma braçadeira com sensor de gás e Arduino: quando a leitura passa do
+            limite programado, o buzzer apita e o motor vibra no braço de quem
+            está usando.
+          </p>
+          <p>
+            A ideia nasceu nas aulas de Química, ao estudar os gases e os riscos
+            que alguns deles trazem para a saúde: conforme o tipo de gás, a
+            concentração e o tempo de exposição, os efeitos podem ser graves e
+            até fatais. O Sentinela é a resposta para isso: um dispositivo
+            vestível que percebe a alteração no ar e avisa o usuário na hora, por
+            dois caminhos ao mesmo tempo - o som e o toque no braço. O projeto
+            veio do percurso das aulas de Desenvolvimento de Sistemas (DEV):
+            programação em blocos, jogos, simulação no Tinkercad e, depois, o
+            código enviado para a placa física pela Arduino IDE. Teste a
+            demonstração, conheça as peças e os materiais da montagem, veja as
+            fotos reais da braçadeira no braço e confira o que aprendeu no quiz.
+          </p>
+          <div class="acoes">
+            <a class="btn" href="#demo">Abrir a demonstração</a>
+            <a class="btn sec" href="#componentes">Conhecer as peças</a>
+            <a class="btn sec" href="#galeria">Ver a montagem real</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="funcionamento">
+        <div class="miolo">
+          <h2>Como funciona o Sentinela</h2>
+          <p class="intro">
+            A braçadeira faz quatro coisas em sequência: o sensor mede o ar, o
+            Arduino compara a leitura com o limite programado, as saídas digitais
+            ligam o buzzer e o motor vibrador, e o usuário sente o aviso no braço.
+            Se uma dessas etapas falha, o alerta não chega.
+          </p>
+          <div class="grade">
+            <article class="card">
+              <h3>A ideia veio da Química</h3>
+              <p>
+                Nas aulas de Química a equipe estudou os gases e os riscos que
+                alguns deles representam para a saúde. Conforme o tipo de gás, a
+                concentração no ar e o tempo de exposição, os efeitos podem ir de
+                um mal-estar até a morte. O Sentinela existe para dar um aviso
+                antes que a exposição continue.
+              </p>
+            </article>
+            <article class="card">
+              <h3>O sensor MQ-2 mede o ar</h3>
+              <p>
+                O modelo usado é o MQ-2, um sensor de gás de semicondutor de óxido
+                metálico: a resistência elétrica dele muda conforme a quantidade
+                de gás na superfície sensível. O MQ-2 é sensível a gases
+                inflamáveis e à fumaça, como GLP, propano, butano, metano,
+                hidrogênio e álcool.
+              </p>
+            </article>
+            <article class="card">
+              <h3>O Arduino compara com o limite</h3>
+              <p>
+                O sensor está ligado ao Arduino, que faz a leitura dos valores
+                enviados por ele. Na programação a equipe definiu um limite:
+                enquanto a leitura fica abaixo, nada acontece; ao ultrapassar, o
+                programa aciona o alerta. O valor numérico escolhido não foi
+                informado.
+              </p>
+            </article>
+            <article class="card">
+              <h3>O buzzer avisa por som</h3>
+              <p>
+                O sinalizador sonoro está ligado a uma saída digital do Arduino.
+                Quando o programa coloca essa saída em nível de acionamento, o
+                buzzer apita. É o aviso que chama a atenção de quem está por
+                perto.
+              </p>
+            </article>
+            <article class="card">
+              <h3>A vibração avisa no braço</h3>
+              <p>
+                O motor vibrador está na outra saída digital e dispara junto com o
+                buzzer. Como o dispositivo é usado no braço, a vibração é sentida
+                na pele: o usuário percebe o alerta mesmo em ambientes com muito
+                ruído, onde o som do buzzer se perde.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Quatro pilhas AAA alimentam tudo</h3>
+              <p>
+                O circuito é alimentado por quatro pilhas AAA ligadas em série,
+                que fornecem aproximadamente 6 volts. A autonomia e a forma como as
+                pilhas ficam presas na braçadeira não foram informadas pela equipe.
+              </p>
+            </article>
+            <article class="card">
+              <h3>O conjunto tem suporte para o braço</h3>
+              <p>
+                A equipe confirma que o Sentinela usa um suporte para o braço: uma
+                bainha de lona clara com um bolso onde a placa de ilhais encaixa e
+                uma faixa preta que segura o conjunto no braço, como aparece nas
+                fotos da galeria. É o suporte que mantém a cápsula do sensor
+                exposta ao ar e transmite o tremor do motor até a pele. O nome do
+                material e o tipo exato do fecho não foram informados.
+              </p>
+            </article>
+          </div>
+          <p class="aviso">
+            O protótipo está em fase de montagem na bancada. O valor do limite
+            programado, a autonomia das pilhas e o nome do material e o tipo de
+            fecho do suporte da braçadeira não foram informados pela equipe, e a
+            leitura real depende do tipo de gás, da ventilação, da distância até o
+            ponto de vazamento e do tempo de aquecimento do sensor.
+          </p>
+        </div>
+      </section>
+
+      <section id="componentes">
+        <div class="miolo">
+          <h2>Componentes do Sentinela</h2>
+          <p class="intro">
+            As ilustrações são esquemáticas. Cada card informa se aquela peça já
+            está ou não na montagem física da equipe.
+          </p>
+          <div class="grade" id="lista-comp"></div>
+        </div>
+      </section>
+
+      <section id="materiais">
+        <div class="miolo">
+          <h2>Materiais e fabricação</h2>
+          <p class="intro">
+            Materiais usados na montagem do Sentinela, com a etapa em que cada um
+            entra. As quantidades, as marcas e a bitola dos fios não foram
+            informadas pela equipe.
+          </p>
+          <div class="rolagem">
+            <table>
+              <caption class="so-leitor">
+                Materiais usados na montagem do detector de gases Sentinela
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Material</th>
+                  <th scope="col">Aplicação</th>
+                  <th scope="col">Etapa de fabricação</th>
+                  <th scope="col">Observações</th>
+                </tr>
+              </thead>
+              <tbody id="corpo-mat">
+                <tr>
+                  <th scope="row">Placa de ilhais perfurada</th>
+                  <td>
+                    Base mecânica e elétrica da montagem: é nela que os
+                    componentes e os pinos ficam soldados e ligados entre si.
+                  </td>
+                  <td>
+                    Corte da placa no tamanho do projeto e solda ponto a ponto.
+                  </td>
+                  <td>
+                    A placa amarela aparece sendo soldada na foto 2, com a solda
+                    ponto a ponto nas fotos 5 e 6, e guardada dentro do bolso da
+                    braçadeira nas fotos 1 e 3. O tipo da placa não foi informado.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Fios flexíveis</th>
+                  <td>
+                    Levar sinal e energia do módulo sensor até o buzzer e o
+                    vibrador.
+                  </td>
+                  <td>
+                    Corte no tamanho, decapagem da ponta e solda nos ilhais da
+                    placa.
+                  </td>
+                  <td>
+                    Os fios vermelho e preto do sensor aparecem nas fotos 1, 3 a
+                    5; na protoboard da foto 7 são jumpers coloridos. A bitola e o
+                    comprimento de cada fio não foram informados.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Solda (estanho)</th>
+                  <td>
+                    Fixar mecanicamente cada pino e fazer o contato elétrico entre
+                    o fio e a placa.
+                  </td>
+                  <td>
+                    Soldagem com ferro de solda, ponto a ponto, na face de cobre
+                    da placa.
+                  </td>
+                  <td>
+                    Uma boa solda fica brilhante e cobrindo o furo inteiro; solda
+                    fria solta a peça com o tempo. A etapa de soldar com o ferro
+                    está na foto 2 e os pontos de solda na face da placa aparecem
+                    nas fotos 5 e 6.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Pinos e conectores</th>
+                  <td>
+                    Criar pontos de ligação firmes na placa, por onde os módulos
+                    encaixam e podem ser trocados.
+                  </td>
+                  <td>Soldagem da fileira de pinos na placa.</td>
+                  <td>
+                    A solda da fileira de pinos na placa está na foto 2 e as
+                    fileiras já prontas aparecem nas fotos 4, 5 e 6. A quantidade
+                    de pinos e o padrão dos conectores não foram informados pela
+                    equipe.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Módulo sensor de gás MQ-2</th>
+                  <td>
+                    Sentir o gás no ar e transformar a presença dele em variação
+                    elétrica: é a leitura que o Arduino acompanha.
+                  </td>
+                  <td>
+                    Encaixe e solda do módulo na placa, com a cápsula metálica
+                    exposta ao ar.
+                  </td>
+                  <td>
+                    A equipe informou o modelo MQ-2, sensível a gases inflamáveis
+                    e à fumaça. O módulo com a cápsula metálica aparece encaixado
+                    no bolso nas fotos 1, 3 e 4 e soldado na placa nas fotos 5 a 7.
+                    A concentração mínima detectada não foi informada.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Buzzer e motor de vibração</th>
+                  <td>
+                    Produzem os dois avisos: o apito que se ouve e o tremor que se
+                    sente no braço.
+                  </td>
+                  <td>
+                    Fixação no conjunto e ligação nas saídas digitais do Arduino.
+                  </td>
+                  <td>
+                    O programa aciona os dois ao mesmo tempo. O buzzer preto
+                    aparece soldado na placa nas fotos 5 e 6, e o pequeno motor de
+                    vibração redondo está na protoboard da foto 7. A corrente e a
+                    tensão de trabalho de cada um não foram informadas pela equipe.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Resistores e componentes de apoio</th>
+                  <td>
+                    Ajustar correntes e níveis do circuito entre o sensor, a placa
+                    e os sinalizadores.
+                  </td>
+                  <td>Montagem e solda na placa junto com o restante.</td>
+                  <td>
+                    Os componentes de apoio aparecem na placa do módulo do sensor,
+                    visível nas fotos 4 e 6. Os valores dos resistores e a
+                    quantidade de peças não foram informados pela equipe.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Placa Arduino</th>
+                  <td>
+                    É o cérebro do Sentinela: lê os valores do sensor, compara com
+                    o limite definido no código e liga as saídas do buzzer e do
+                    motor.
+                  </td>
+                  <td>
+                    Simulação no Tinkercad, escrita do programa na Arduino IDE e
+                    envio do código para a placa física.
+                  </td>
+                  <td>
+                    Nas fotos 5, 6 e 7 a placa é do formato compacto, ligada por
+                    cabo mini USB. O modelo exato da placa e os pinos usados na
+                    ligação não foram informados pela equipe.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Quatro pilhas AAA em série</th>
+                  <td>
+                    Alimentar o conjunto inteiro fora da tomada, porque o
+                    dispositivo é usado no corpo.
+                  </td>
+                  <td>
+                    Ligação em série e conexão com a placa e os sinalizadores.
+                  </td>
+                  <td>
+                    Em série, as quatro pilhas fornecem aproximadamente 6 volts. O
+                    suporte preto com as quatro AAA aparece nas fotos 5 e 6. A
+                    autonomia medida não foi informada.
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Suporte da braçadeira</th>
+                  <td>
+                    Manter o sensor, a placa e os avisos presos no braço do
+                    usuário, com a cápsula do MQ-2 em contato com o ar.
+                  </td>
+                  <td>
+                    Fixação das peças e ajuste no braço, depois do circuito
+                    funcionando.
+                  </td>
+                  <td>
+                    A braçadeira de lona clara com bolso e faixa preta aparece nas
+                    fotos 1, 3 e 4: é ela que segura o conjunto no braço. O nome do
+                    material e o tipo de fecho não foram informados.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="grade">
+            <article class="card">
+              <h3>Do Tinkercad para a placa</h3>
+              <p>
+                O caminho começou nas aulas de Desenvolvimento de Sistemas (DEV),
+                com programação em blocos e criação de jogos. Depois veio o
+                Tinkercad, onde o circuito do Arduino é montado e simulado na tela.
+                Quando o comportamento está certo, o código passa para a Arduino
+                IDE e é enviado para a placa física - que é o que faz o buzzer e o
+                motor responderem de verdade.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Ferramentas da bancada</h3>
+              <p>
+                Ferro de solda com suporte espiral, alicate de corte para o fio e
+                alicate de bico para segurar a peça enquanto a solda esfria. O
+                suporte do ferro existe para que a ponta quente nunca encoste na
+                mesa nem na mão de ninguém.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Cuidados na soldagem</h3>
+              <p>
+                Trabalhar em local ventilado, usar o suporte do ferro, conferir a
+                solda depois que ela esfriar e refazer qualquer ponto frio antes de
+                ligar as pilhas. Um ponto mal soldado é a falha mais comum em placa
+                de ilhais - e pode ser justamente o ponto que deixa de avisar.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria">
+        <div class="miolo">
+          <h2>Galeria da montagem</h2>
+          <p class="intro">
+            Fotos reais da braçadeira do Sentinela no braço, da solda dos pinos na
+            placa de ilhais, do circuito montado e da etapa anterior na protoboard.
+            Clique em uma foto para ampliar.
+          </p>
+          <div class="galeria" id="galeria-lista">
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da braçadeira usada no braço"
+              >
+                <img
+                  src="imagens/sentinela/01-bracadadeira-no-braco.jpg"
+                  alt="Braçadeira de lona clara presa no braço de uma pessoa de uniforme azul: um bolso guarda a placa do circuito e a cápsula metálica do sensor aparece acima da borda do bolso."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                A braçadeira no braço: o bolso de lona guarda a placa de ilhais e
+                a cápsula do sensor fica acima da borda, em contato direto com o
+                ar. É assim que o aparelho mede o ambiente enquanto a pessoa
+                trabalha.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da solda da fileira de pinos na placa de ilhais"
+              >
+                <img
+                  src="imagens/sentinela/02-soldando-pinos-na-placa.jpg"
+                  alt="Duas mãos soldam uma fileira de pinos em uma placa de ilhais amarela apoiada na bancada: a mão esquerda segura o ferro de solda de cabo amarelo e encosta a ponta no pino, e a mão direita firma a borda da placa."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                A solda da fileira de pinos na placa de ilhais, ponto a ponto com o
+                ferro de solda, enquanto a outra mão firma a borda da peça. É essa
+                base de pinos que depois segura os módulos e permite trocar uma
+                peça sem refazer a montagem inteira.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto da braçadeira aberta sobre a bancada"
+              >
+                <img
+                  src="imagens/sentinela/03-bracadadeira-aberta-na-bancada.jpg"
+                  alt="Braçadeira de lona clara aberta sobre a bancada, mostrando o bolso interno onde a placa encaixa, o forro claro e a faixa preta que envolve o braço."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                A braçadeira aberta na bancada: o bolso onde a placa encaixa, o
+                forro claro e a faixa preta que segura o conjunto no braço. A
+                placa fica solta dentro do bolso, o que facilita trocar ou
+                consertar o circuito.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto do módulo do sensor encaixado na braçadeira"
+              >
+                <img
+                  src="imagens/sentinela/04-sensor-encaixado-na-bracadadeira.jpg"
+                  alt="Módulo do sensor de gás com cápsula metálica encaixado no bolso da braçadeira, com a cápsula voltada para fora da lona."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                O módulo do sensor encaixado no bolso com a cápsula metálica
+                voltada para fora. Se a cápsula ficar coberta pela lona, o gás não
+                chega na superfície sensível e o alarme pode não disparar.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto do circuito montado na placa de ilhais com as pilhas"
+              >
+                <img
+                  src="imagens/sentinela/05-circuito-na-placa-de-ilhais.jpg"
+                  alt="Circuito fora da braçadeira: placa de ilhais amarela com uma placa Arduino azul e um buzzer preto soldados, o módulo do sensor de gás em pé na placa e um suporte preto com quatro pilhas AAA roxas ao lado."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                O circuito fora da braçadeira: a placa de ilhais com a placa
+                Arduino e o buzzer, o módulo do sensor e o suporte com as quatro
+                pilhas AAA ligadas em série, que fornecem aproximadamente 6 volts.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar o detalhe da placa Arduino, do buzzer e do porta-pilhas"
+              >
+                <img
+                  src="imagens/sentinela/06-detalhe-placa-buzzer-e-pilhas.jpg"
+                  alt="Detalhe da placa de ilhais: a placa Arduino de formato compacto com conector mini USB, o buzzer preto soldado ao lado e o porta-pilhas aberto com quatro pilhas AAA roxas encaixadas em série."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                Detalhe da solda na placa de ilhais: a placa Arduino de formato
+                compacto, o buzzer preto fixo ao lado e o porta-pilhas de quatro
+                AAA. O modelo exato da placa e o valor do limite programado não
+                foram informados pela equipe.
+              </figcaption>
+            </figure>
+            <figure class="foto">
+              <button
+                type="button"
+                class="foto-btn"
+                aria-label="Ampliar a foto do protótipo na protoboard com jumpers coloridos"
+              >
+                <img
+                  src="imagens/sentinela/07-protoboard-com-jumpers.jpg"
+                  alt="Protótipo montado em uma protoboard branca: placa Arduino azul, módulo do sensor de gás, buzzer e um pequeno motor de vibração redondo, ligados por jumpers coloridos em arco."
+                  loading="lazy"
+                />
+              </button>
+              <figcaption>
+                A etapa anterior, na protoboard: sensor, placa, buzzer e o motor
+                de vibração ligados por jumpers coloridos. É o teste do circuito
+                antes de tudo passar para a placa de ilhais soldada, o mesmo
+                caminho que a equipe exercitou no Tinkercad.
+              </figcaption>
+            </figure>
+          </div>
+          <dialog id="lightbox" aria-label="Foto ampliada">
+            <img id="lb-img" src="" alt="" />
+            <p id="lb-leg"></p>
+            <button type="button" class="btn" id="lb-fechar">Fechar</button>
+          </dialog>
+        </div>
+      </section>
+
+      <section id="demo">
+        <div class="miolo">
+          <h2>Demonstração do alarme</h2>
+          <p class="intro">
+            Mude a concentração de gás no ar e veja quando a braçadeira dispara. O
+            limite de 40% da escala é um valor de estudo para a demonstração: o
+            valor programado no Arduino pela equipe não foi informado.
+          </p>
+          <div class="sim">
+            <div class="card sim-fig">
+              <svg
+                id="demo-svg"
+                viewBox="0 0 540 424"
+                role="img"
+                aria-label="Corte do ambiente com uma fonte de gás à esquerda e, à direita, uma pessoa de braço estendido usando a braçadeira do Sentinela; uma barra no topo mostra a concentração medida e a marca do limite de disparo"
+              >
+                <rect
+                  class="d-fundo"
+                  x="8"
+                  y="8"
+                  width="524"
+                  height="408"
+                  rx="14"
+                />
+                <line class="d-chao" x1="8" y1="366" x2="532" y2="366" />
+
+                <g id="d-escala">
+                  <text class="d-rotulo" x="60" y="34">
+                    concentração medida pelo sensor
+                  </text>
+                  <rect
+                    class="d-trilho"
+                    x="60"
+                    y="44"
+                    width="420"
+                    height="18"
+                    rx="9"
+                  />
+                  <rect
+                    class="d-barra"
+                    id="d-barra"
+                    x="60"
+                    y="44"
+                    width="0"
+                    height="18"
+                    rx="9"
+                  />
+                  <line
+                    class="d-limite"
+                    id="d-limite"
+                    x1="228"
+                    y1="36"
+                    x2="228"
+                    y2="70"
+                  />
+                  <text class="d-rotulo" id="d-limite-txt" x="228" y="86">
+                    limite: 40%
+                  </text>
+                </g>
+
+                <g id="d-fonte">
+                  <rect
+                    class="d-cilindro"
+                    x="52"
+                    y="276"
+                    width="76"
+                    height="90"
+                    rx="10"
+                  />
+                  <rect
+                    class="d-cilindro"
+                    x="78"
+                    y="252"
+                    width="24"
+                    height="26"
+                    rx="6"
+                  />
+                  <text class="d-rotulo" x="90" y="392">fonte de gás</text>
+                </g>
+
+                <g id="d-nuvem" opacity="0">
+                  <circle class="d-gas" cx="150" cy="296" r="20" />
+                  <circle class="d-gas" cx="188" cy="266" r="26" />
+                  <circle class="d-gas" cx="224" cy="302" r="18" />
+                  <circle class="d-gas" cx="258" cy="272" r="22" />
+                  <circle class="d-gas" cx="292" cy="294" r="16" />
+                  <circle class="d-gas" cx="322" cy="278" r="13" />
+                </g>
+
+                <g id="d-pessoa">
+                  <circle class="d-corpo-p" cx="470" cy="248" r="19" />
+                  <path
+                    class="d-traco"
+                    d="M470 267v53M470 320l-18 42M470 320l18 42M470 267l24 34M470 267l-40 24h-56"
+                  />
+                  <text class="d-rotulo" x="470" y="392">usuário</text>
+                </g>
+
+                <g id="d-aparelho">
+                  <rect
+                    class="d-corpo"
+                    x="382"
+                    y="276"
+                    width="46"
+                    height="30"
+                    rx="7"
+                  />
+                  <rect class="d-faixa" x="388" y="266" width="6" height="50" rx="3" />
+                  <rect class="d-faixa" x="414" y="266" width="6" height="50" rx="3" />
+                  <circle class="d-led" id="d-led" cx="392" cy="284" r="4" />
+                  <circle class="d-buzzer" cx="412" cy="292" r="8" />
+                  <circle class="d-buzzer-furo" cx="412" cy="292" r="2.5" />
+                  <line class="d-grade" x1="396" y1="299" x2="404" y2="299" />
+                  <text class="d-rotulo" x="360" y="344">
+                    braçadeira com o MQ-2
+                  </text>
+                  <g id="d-ondas" opacity="0">
+                    <path class="d-onda" d="M374 278a20 20 0 0 0 0 26" />
+                    <path class="d-onda" d="M360 268a38 38 0 0 0 0 46" />
+                    <path class="d-onda" d="M346 258a56 56 0 0 0 0 66" />
+                  </g>
+                  <g id="d-tremor" opacity="0">
+                    <path class="d-tremor" d="M396 266l6-8 6 8" />
+                    <path class="d-tremor" d="M396 316l6 8 6-8" />
+                  </g>
+                </g>
+              </svg>
+              <p class="legenda">
+                O gás sai da fonte e chega até o sensor na braçadeira. Quando a
+                barra do topo passa da marca do limite, o programa do Arduino liga
+                as duas saídas: o buzzer apita e o motor vibra no braço ao mesmo
+                tempo.
+              </p>
+            </div>
+            <div class="card sim-ctl">
+              <div class="medidor">
+                <label for="gas-in">Concentração de gás no ambiente</label>
+                <input
+                  id="gas-in"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="8"
+                  aria-describedby="gas-leitura"
+                />
+                <p id="gas-leitura" class="leitura">
+                  <strong id="gas-valor">8</strong>% da escala do sensor
+                </p>
+              </div>
+              <div class="cenas" role="group" aria-label="Cenários rápidos">
+                <button
+                  type="button"
+                  class="btn-cena"
+                  data-g="4"
+                  aria-pressed="true"
+                >
+                  Ar limpo
+                </button>
+                <button
+                  type="button"
+                  class="btn-cena"
+                  data-g="28"
+                  aria-pressed="false"
+                >
+                  Fogão ligado
+                </button>
+                <button
+                  type="button"
+                  class="btn-cena"
+                  data-g="55"
+                  aria-pressed="false"
+                >
+                  Fuga pequena
+                </button>
+                <button
+                  type="button"
+                  class="btn-cena"
+                  data-g="90"
+                  aria-pressed="false"
+                >
+                  Vazamento
+                </button>
+              </div>
+              <div class="liga">
+                <button
+                  type="button"
+                  class="btn sec"
+                  id="som-btn"
+                  aria-pressed="false"
+                >
+                  Apito: desligado
+                </button>
+                <button
+                  type="button"
+                  class="btn sec"
+                  id="tremor-btn"
+                  aria-pressed="true"
+                >
+                  Vibração: ligada
+                </button>
+              </div>
+              <div aria-live="polite">
+                <p class="status" id="demo-status"></p>
+                <h3 id="demo-titulo"></h3>
+                <p id="demo-txt"></p>
+                <p id="demo-eng"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quiz">
+        <div class="miolo">
+          <h2>Quiz: o que você aprendeu?</h2>
+          <div class="card" id="quiz-area"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="miolo">
+        <h2>Sobre o projeto</h2>
+        <p>
+          Projeto Sentinela: braçadeira com sensor de gás MQ-2 e Arduino, que
+          aciona buzzer e motor vibrador quando a leitura passa do limite
+          programado. A ideia veio das aulas de Química e o desenvolvimento do
+          percurso das aulas de Desenvolvimento de Sistemas (DEV), no SENAI.
+        </p>
+        <p>
+          Alimentado por quatro pilhas AAA em série, que fornecem aproximadamente
+          6 volts. A seção Materiais e fabricação lista o que está sendo usado na
+          montagem.
+        </p>
+        <p>Turma V3 do Programa Trilhas da Educação no SENAI Norte 1</p>
+        <p>Professor Lucas</p>
+        <p>Desenvolvido por:</p>
+        <ul>
+          <li>Herbert Kalebe L. Gomes</li>
+          <li>Nicolas Albrecht</li>
+          <li>Victor Izaque N. de Ramos</li>
+          <li>Jefté Orlando S. Lima</li>
+        </ul>
+        
+      </div>
+    </footer>
+
+    <button
+      type="button"
+      class="chat-btn"
+      id="chat-btn"
+      aria-expanded="false"
+      aria-controls="chat"
+    >
+      Perguntar ao professor
+    </button>
+    <section
+      class="chat"
+      id="chat"
+      aria-label="Conversa com o Robô Professor"
+      hidden
+    >
+      <div class="chat-topo">
+        <strong>Robô Professor</strong
+        ><button type="button" id="chat-x" aria-label="Fechar conversa">
+          Fechar
+        </button>
+      </div>
+      <div class="chat-log" id="chat-log" role="log" aria-live="polite"></div>
+      <div class="chips-linha">
+        <button
+          type="button"
+          class="chips-btn"
+          id="chips-btn"
+          aria-expanded="false"
+          aria-controls="chips"
+        >
+          Perguntas prontas
+        </button>
+        <span class="chips-nota">toque para escolher uma dúvida</span>
+      </div>
+      <div class="chips" id="chips" hidden></div>
+      <div class="cmd">
+        <span class="cmd-sinal" aria-hidden="true">&gt;</span>
+        <input
+          id="cmd-in"
+          type="text"
+          aria-label="Caixa de comando do Robô Professor"
+          autocapitalize="off"
+          autocorrect="off"
+          spellcheck="false"
+          placeholder="/ajuda · /gas 55 · /busca sensor"
+        />
+        <button type="button" class="btn sec" id="cmd-ir">Executar</button>
+      </div>
+      <div class="cmd-dicas" id="cmd-dicas"></div>
+      <form id="chat-form" autocomplete="off">
+        <input
+          id="chat-in"
+          type="text"
+          aria-label="Escreva sua pergunta"
+          placeholder="Escreva sua dúvida sobre o Sentinela"
+        />
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </section>
+  </body>
+</html>
